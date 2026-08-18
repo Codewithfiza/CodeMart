@@ -1,21 +1,28 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #F5F1EC; /* off-white — not in your original palette, added for contrast */
+  --foreground: #60241E; /* deep maroon */
+
+  --primary: #60241E;    /* deep maroon */
+  --secondary: #95271D;  /* burnt red */
+  --accent: #B34A44;     /* muted rose */
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #60241E;
+    --foreground: #F5F1EC;
   }
 }
 
