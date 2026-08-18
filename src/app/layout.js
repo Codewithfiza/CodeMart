@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  metadataBase: new URL("https://yourdomain.com"),
+  metadataBase: new URL("https://code-mart-five.vercel.app"),
 
   title: {
     default: "CodeMart | Shop Quality Products Online",
