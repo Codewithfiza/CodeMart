@@ -1,36 +1,163 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🛒 CodeMart – E-commerce Web Application
 
-## Getting Started
+CodeMart is a modern e-commerce web application built with **Next.js (App Router)**. It provides a smooth shopping experience with dynamic product pages, cart functionality using Redux Toolkit, and SEO optimization.
 
-First, run the development server:
+---
+
+## 🚀 Features
+
+* 🏠 **Homepage & Shop Page** – Browse all available products
+* 📦 **Dynamic Product Pages** – Each product has its own page using dynamic routing (`/product/[id]`)
+* 🛒 **Cart System** – Add, remove, and update product quantities using **Redux Toolkit**
+* 💳 **Checkout Flow** – Simple checkout form with order confirmation
+* 📄 **Order Confirmation Page** – Displays order details after purchase
+* 🔍 **SEO Optimization** – Metadata, sitemap, and robots configuration
+* 📱 **Responsive Design** – Works across all devices
+
+---
+
+## 🧠 Tech Stack
+
+* **Framework:** Next.js (App Router)
+* **State Management:** Redux Toolkit
+* **Styling:** Tailwind CSS
+* **Icons:** Lucide React
+* **API:** DummyJSON (for product data)
+* **Notifications:** React Hot Toast
+
+---
+
+## 📂 Project Structure
+
+```
+src/app/
+│
+├── page.js                # Homepage
+├── shop-server/           # Product listing page
+├── product/[id]/          # Dynamic product detail pages
+├── cart/                  # Cart page
+├── checkout/              # Checkout page
+├── order-confirmed/       # Order success page
+├── about-us/              # About page
+├── contact/               # Contact page
+│
+├── redux/
+│   ├── store.js
+│   ├── Provider.jsx
+│   └── features/
+│       └── cartslice.js   # Cart logic (Redux Toolkit)
+│
+├── components/
+│   ├── common/
+│   ├── productlistserver/
+│   └── shop-components/
+```
+
+---
+
+## 🔄 Dynamic Routing
+
+Product detail pages are created using Next.js dynamic routes:
+
+```
+/product/[id]
+```
+
+Each product page fetches data from the API and dynamically generates content and SEO metadata.
+
+---
+
+## 🛒 Cart Functionality (Redux Toolkit)
+
+* Add items to cart
+* Remove items
+* Update quantity
+* Calculate total price
+
+Redux Toolkit is used for efficient and scalable state management.
+
+---
+
+## 🔍 SEO Optimization
+
+* Global metadata in `layout.js`
+* `robots.js` to control crawling
+* `sitemap.js` to guide search engines
+
+
+---
+
+## ⚙️ Installation & Setup
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/your-username/CodeMart.git
+```
+
+2. Navigate to the project:
+
+```bash
+cd CodeMart
+```
+
+3. Install dependencies:
+
+```bash
+npm install
+```
+
+4. Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+5. Open in browser:
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🌐 Deployment
 
-To learn more about Next.js, take a look at the following resources:
+This project is deployed using **Vercel**.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Steps:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Push project to GitHub
+2. Import repo in Vercel
+3. Deploy with default settings
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📌 Future Improvements
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+* Add authentication (login/signup)
+* Integrate real payment gateway
+* Improve product filtering & search
+* Add product reviews and ratings
+* Use a real backend instead of dummy API
+
+---
+
+## 👩‍💻 Author
+
+**Fiza Hassan**
+Frontend Developer (Next.js, React)
+
+---
+
+## ⭐ Acknowledgements
+
+* DummyJSON API for product data
+* Next.js documentation
+* Redux Toolkit
+
+---
+
+## 📄 License
+
+This project is open-source and available for learning purposes.
