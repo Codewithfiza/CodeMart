@@ -1,4 +1,4 @@
-// src/app/order-confirmed/page.js
+
 "use client";
 
 import { useEffect, useState } from "react";
@@ -10,10 +10,6 @@ import {
   Mail,
   PackageCheck,
 } from "lucide-react";
-
-
-
-
 
 export default function OrderConfirmedPage() {
   const [order, setOrder] = useState(null);
@@ -29,17 +25,15 @@ export default function OrderConfirmedPage() {
     setChecked(true);
   }, []);
 
-  // ================= LOADING =================
-
+  // Loading state
   if (!checked) {
     return null;
   }
 
-  // ================= NO ORDER =================
-
+  // No recent order
   if (!order) {
     return (
-      <main className="min-h-[70vh] px-4 py-16 sm:px-6 lg:px-8">
+      <main className="min-h-[70vh] bg-[#60241E] px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto flex max-w-xl flex-col items-center justify-center text-center">
           <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-[#F2F1EF]">
             <ShoppingBag
@@ -70,15 +64,13 @@ export default function OrderConfirmedPage() {
   }
 
   return (
-    <main className="min-h-screen px-4 py-10 sm:px-6 sm:py-14 lg:px-8 lg:py-16">
+    <main className="min-h-screen bg-[#60241E] px-4 py-10 sm:px-6 sm:py-14 lg:px-8 lg:py-16">
       <div className="mx-auto max-w-3xl">
 
-        {/* ================= SUCCESS HEADER ================= */}
-
+        {/* Success Header */}
         <div className="text-center">
 
-          {/* Success icon */}
-
+          {/* Success Icon */}
           <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-[#F2F1EF] shadow-sm sm:h-24 sm:w-24">
             <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#60241E] sm:h-14 sm:w-14">
               <Check
@@ -89,7 +81,6 @@ export default function OrderConfirmedPage() {
           </div>
 
           {/* Heading */}
-
           <p className="mt-7 text-xs font-medium uppercase tracking-[0.2em] text-[#F5F1EC]/50">
             Order Confirmed
           </p>
@@ -103,10 +94,12 @@ export default function OrderConfirmedPage() {
             order gets to you soon.
           </p>
 
-          {/* Order number */}
-
+          {/* Order Number */}
           <div className="mt-5 inline-flex items-center gap-2 rounded-full border border-[#F5F1EC]/15 bg-[#F5F1EC]/5 px-4 py-2">
-            <PackageCheck className="h-4 w-4 text-[#F5F1EC]/70" />
+            <PackageCheck
+              className="h-4 w-4 text-[#F5F1EC]/70"
+              strokeWidth={1.8}
+            />
 
             <span className="text-sm text-[#F5F1EC]/60">
               Order
@@ -118,9 +111,9 @@ export default function OrderConfirmedPage() {
           </div>
 
           {/* Email */}
-
           <div className="mt-4 flex items-center justify-center gap-2 text-xs text-[#F5F1EC]/50 sm:text-sm">
             <Mail className="h-4 w-4" />
+
             <span>
               Confirmation sent to{" "}
               <span className="font-medium text-[#F5F1EC]/70">
@@ -130,12 +123,10 @@ export default function OrderConfirmedPage() {
           </div>
         </div>
 
-        {/* ================= ORDER SUMMARY ================= */}
-
+        {/* Order Summary */}
         <section className="mt-10 overflow-hidden rounded-2xl bg-[#F2F1EF] shadow-sm sm:mt-12">
 
-          {/* Summary header */}
-
+          {/* Summary Header */}
           <div className="flex items-center justify-between border-b border-[#60241E]/10 px-5 py-5 sm:px-7">
             <div>
               <h2 className="text-lg font-bold text-[#60241E] sm:text-xl">
@@ -157,15 +148,13 @@ export default function OrderConfirmedPage() {
           </div>
 
           {/* Products */}
-
           <div className="divide-y divide-[#60241E]/10 px-5 sm:px-7">
             {order.items.map((item) => (
               <div
                 key={item.id}
                 className="flex gap-4 py-5"
               >
-                {/* Product image */}
-
+                {/* Product Image */}
                 <div className="flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-white sm:h-20 sm:w-20">
                   <img
                     src={item.thumbnail}
@@ -174,8 +163,7 @@ export default function OrderConfirmedPage() {
                   />
                 </div>
 
-                {/* Product details */}
-
+                {/* Product Details */}
                 <div className="min-w-0 flex-1">
                   <h3 className="line-clamp-2 text-sm font-semibold leading-5 text-[#60241E] sm:text-base">
                     {item.title}
@@ -190,8 +178,7 @@ export default function OrderConfirmedPage() {
                   </div>
                 </div>
 
-                {/* Item total */}
-
+                {/* Item Total */}
                 <div className="shrink-0 text-right">
                   <p className="text-sm font-bold text-[#60241E] sm:text-base">
                     ${(item.price * item.quantity).toFixed(2)}
@@ -201,10 +188,8 @@ export default function OrderConfirmedPage() {
             ))}
           </div>
 
-          {/* Price breakdown */}
-
+          {/* Price Breakdown */}
           <div className="border-t border-[#60241E]/10 px-5 py-5 sm:px-7">
-
             <div className="space-y-3 text-sm">
               <div className="flex justify-between text-[#60241E]/60">
                 <span>Subtotal</span>
@@ -224,7 +209,6 @@ export default function OrderConfirmedPage() {
             </div>
 
             {/* Total */}
-
             <div className="mt-5 flex items-center justify-between border-t border-[#60241E]/15 pt-5">
               <span className="text-base font-bold text-[#60241E]">
                 Total
@@ -237,11 +221,13 @@ export default function OrderConfirmedPage() {
           </div>
         </section>
 
-        {/* ================= BOTTOM MESSAGE ================= */}
-
+        {/* Bottom Message */}
         <div className="mt-6 flex items-start gap-3 rounded-2xl border border-[#F5F1EC]/10 bg-[#F5F1EC]/5 px-4 py-4 sm:items-center">
           <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#F5F1EC]/10">
-            <PackageCheck className="h-4 w-4 text-[#F5F1EC]/75" />
+            <PackageCheck
+              className="h-4 w-4 text-[#F5F1EC]/75"
+              strokeWidth={1.8}
+            />
           </div>
 
           <p className="text-xs leading-5 text-[#F5F1EC]/55 sm:text-sm">
@@ -253,8 +239,7 @@ export default function OrderConfirmedPage() {
           </p>
         </div>
 
-        {/* ================= CTA ================= */}
-
+        {/* CTA */}
         <div className="mt-7 flex flex-col items-center gap-3 sm:mt-8 sm:flex-row sm:justify-center">
           <Link
             href="/shop-server"
